@@ -1,0 +1,21 @@
+{
+  "result": {
+    "request_id": "EX-01-NORMAL",
+    "material_id": "M01",
+    "review_status": "passed",
+    "risk_reasons": [],
+    "requested_slot": "2026-11-02T17:00:00+08:00",
+    "suggested_slot": null,
+    "confirmation_status": "not_required",
+    "pending_items": [],
+    "draft_status": "saved",
+    "draft_id": "DRAFT-BE2DAAD1A22D",
+    "task_status": "completed",
+    "summary": "排期草稿已保存；未执行真实发布。",
+    "trace_file": "trace.json"
+  },
+  "completion_reason": "model_finished",
+  "model_steps": 5,
+  "tool_calls": 4,
+  "trace_error": null
+}

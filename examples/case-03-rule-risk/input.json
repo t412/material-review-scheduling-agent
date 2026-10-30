@@ -1,0 +1,13 @@
+{
+  "request_id": "EX-03-RISK",
+  "material_id": "M03",
+  "requested_slot": "2026-11-02T17:00:00+08:00",
+  "slot_requirement": "hard",
+  "user_confirmed_alternative": false,
+  "constraints": {
+    "allowed_date": "2026-11-02",
+    "earliest_time": "17:00:00",
+    "latest_time": "21:00:00"
+  }
+}
+

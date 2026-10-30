@@ -1,0 +1,23 @@
+{
+  "result": {
+    "request_id": "LIVE-02-CONFLICT",
+    "material_id": "M01",
+    "review_status": "passed",
+    "risk_reasons": [],
+    "requested_slot": "2026-11-02T18:00:00+08:00",
+    "suggested_slot": "2026-11-02T19:00:00+08:00",
+    "confirmation_status": "pending_confirmation",
+    "pending_items": [
+      "原hard时段2026-11-02T18:00:00+08:00已被占用（SCH-001），候选时段2026-11-02T19:00:00+08:00需用户确认"
+    ],
+    "draft_status": "saved",
+    "draft_id": "DRAFT-7750C97C09B8",
+    "task_status": "awaiting_confirmation",
+    "summary": "素材M01审核通过；目标时段被占用，已按第一个候选时段保存排期草稿DRAFT-7750C97C09B8，等待用户确认，仅保存草稿、未执行真实发布。",
+    "trace_file": "trace.json"
+  },
+  "completion_reason": "model_finished",
+  "model_steps": 6,
+  "tool_calls": 5,
+  "trace_error": null
+}

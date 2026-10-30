@@ -1,0 +1,149 @@
+{
+  "schema_version": "1.0",
+  "run_id": "EX-06-SAVE-FAILURE-20261029T201557963655-39430b2f",
+  "started_at": "2026-10-29T20:15:57.913064+08:00",
+  "finished_at": "2026-10-29T20:15:57.963655+08:00",
+  "input": {
+    "request_id": "EX-06-SAVE-FAILURE",
+    "material_id": "M05",
+    "requested_slot": "2026-11-02T19:00:00+08:00",
+    "slot_requirement": "hard",
+    "user_confirmed_alternative": false,
+    "constraints": {
+      "allowed_date": "2026-11-02",
+      "earliest_time": "17:00:00",
+      "latest_time": "21:00:00"
+    }
+  },
+  "limits": {
+    "max_steps": 8,
+    "max_tool_calls": 10,
+    "max_identical_calls": 2
+  },
+  "model_steps": 5,
+  "tool_calls": 4,
+  "steps": [
+    {
+      "step": 1,
+      "call_id": "mock-call-1",
+      "action": "get_material",
+      "arguments": {
+        "material_id": "M05"
+      },
+      "observation": {
+        "status": "success",
+        "summary": "已读取素材M05，信息完整。",
+        "error_code": null,
+        "data": {
+          "material": {
+            "material_id": "M05",
+            "title": "模板使用教程",
+            "media_type": "video",
+            "source": "internal",
+            "copyright_owner": "小影科技",
+            "content_summary": "演示如何使用视频模板快速创建作品。",
+            "category": "tutorial",
+            "tags": [
+              "教程",
+              "模板"
+            ],
+            "language": "zh-CN"
+          },
+          "missing_fields": []
+        }
+      },
+      "next_action": "check_material_rules",
+      "decision_basis": "模型选择调用get_material以获取下一步所需事实。"
+    },
+    {
+      "step": 2,
+      "call_id": "mock-call-2",
+      "action": "check_material_rules",
+      "arguments": {
+        "material_id": "M05"
+      },
+      "observation": {
+        "status": "success",
+        "summary": "素材M05审核结果：passed；命中0条规则。",
+        "error_code": null,
+        "data": {
+          "material_id": "M05",
+          "review_status": "passed",
+          "matched_rules": [],
+          "risk_reasons": []
+        }
+      },
+      "next_action": "query_slot",
+      "decision_basis": "模型选择调用check_material_rules以获取下一步所需事实。"
+    },
+    {
+      "step": 3,
+      "call_id": "mock-call-3",
+      "action": "query_slot",
+      "arguments": {
+        "slot": "2026-11-02T19:00:00+08:00"
+      },
+      "observation": {
+        "status": "success",
+        "summary": "时段2026-11-02T19:00:00+08:00可用。",
+        "error_code": null,
+        "data": {
+          "slot": "2026-11-02T19:00:00+08:00",
+          "availability": "available",
+          "conflicts": []
+        }
+      },
+      "next_action": "save_schedule_draft",
+      "decision_basis": "模型选择调用query_slot以获取下一步所需事实。"
+    },
+    {
+      "step": 4,
+      "call_id": "mock-call-4",
+      "action": "save_schedule_draft",
+      "arguments": {
+        "request": {
+          "request_id": "EX-06-SAVE-FAILURE",
+          "material_id": "M05",
+          "requested_slot": "2026-11-02T19:00:00+08:00",
+          "slot_requirement": "hard",
+          "user_confirmed_alternative": false,
+          "constraints": {
+            "allowed_date": "2026-11-02",
+            "earliest_time": "17:00:00",
+            "latest_time": "21:00:00"
+          }
+        },
+        "review_status": "passed",
+        "suggested_slot": null,
+        "confirmation_status": "not_required"
+      },
+      "observation": {
+        "status": "failure",
+        "summary": "已注入草稿存储失败；草稿未保存。",
+        "error_code": "DRAFT_SAVE_INJECTED_FAILURE",
+        "data": {
+          "draft_status": "failed"
+        }
+      },
+      "next_action": "结束：failed",
+      "decision_basis": "模型选择调用save_schedule_draft以获取下一步所需事实。"
+    }
+  ],
+  "completion_reason": "model_finished",
+  "final_output": {
+    "request_id": "EX-06-SAVE-FAILURE",
+    "material_id": "M05",
+    "review_status": "passed",
+    "risk_reasons": [],
+    "requested_slot": "2026-11-02T19:00:00+08:00",
+    "suggested_slot": null,
+    "confirmation_status": "not_required",
+    "pending_items": [],
+    "draft_status": "failed",
+    "draft_id": null,
+    "task_status": "failed",
+    "summary": "草稿保存失败，未执行真实发布。",
+    "trace_file": "trace.json"
+  },
+  "notes": "仅记录可审计动作依据，不包含模型内部思维过程。"
+}

@@ -1,0 +1,8 @@
+{
+  "model": "deepseek-flash",
+  "base_url_configured": true,
+  "case_count": 3,
+  "validation": "passed",
+  "failures": [],
+  "note": "未记录API密钥。Trace仅包含可审计动作，不包含内部思维过程。"
+}

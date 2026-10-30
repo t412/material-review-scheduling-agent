@@ -1,0 +1,82 @@
+{
+  "schema_version": "1.0",
+  "run_id": "EX-02-MISSING-20261029T201557772676-b21cf8a4",
+  "started_at": "2026-10-29T20:15:57.755554+08:00",
+  "finished_at": "2026-10-29T20:15:57.772676+08:00",
+  "input": {
+    "request_id": "EX-02-MISSING",
+    "material_id": "M02",
+    "requested_slot": "2026-11-02T17:00:00+08:00",
+    "slot_requirement": "hard",
+    "user_confirmed_alternative": false,
+    "constraints": {
+      "allowed_date": "2026-11-02",
+      "earliest_time": "17:00:00",
+      "latest_time": "21:00:00"
+    }
+  },
+  "limits": {
+    "max_steps": 8,
+    "max_tool_calls": 10,
+    "max_identical_calls": 2
+  },
+  "model_steps": 2,
+  "tool_calls": 1,
+  "steps": [
+    {
+      "step": 1,
+      "call_id": "mock-call-1",
+      "action": "get_material",
+      "arguments": {
+        "material_id": "M02"
+      },
+      "observation": {
+        "status": "success",
+        "summary": "已读取素材M02，存在缺失字段。",
+        "error_code": null,
+        "data": {
+          "material": {
+            "material_id": "M02",
+            "title": "用户投稿混剪",
+            "media_type": "video",
+            "source": "user_submission",
+            "copyright_owner": null,
+            "content_summary": "由用户投稿片段组成的混剪视频。",
+            "category": "community",
+            "tags": [
+              "投稿",
+              "混剪"
+            ],
+            "language": "zh-CN"
+          },
+          "missing_fields": [
+            "copyright_owner"
+          ]
+        }
+      },
+      "next_action": "结束：incomplete",
+      "decision_basis": "模型选择调用get_material以获取下一步所需事实。"
+    }
+  ],
+  "completion_reason": "model_finished",
+  "final_output": {
+    "request_id": "EX-02-MISSING",
+    "material_id": "M02",
+    "review_status": "needs_information",
+    "risk_reasons": [
+      "缺少字段：copyright_owner"
+    ],
+    "requested_slot": "2026-11-02T17:00:00+08:00",
+    "suggested_slot": null,
+    "confirmation_status": "not_required",
+    "pending_items": [
+      "补充字段：copyright_owner"
+    ],
+    "draft_status": "not_attempted",
+    "draft_id": null,
+    "task_status": "incomplete",
+    "summary": "素材信息不完整，需要补充后继续。",
+    "trace_file": "trace.json"
+  },
+  "notes": "仅记录可审计动作依据，不包含模型内部思维过程。"
+}

@@ -1,0 +1,25 @@
+{
+  "result": {
+    "request_id": "EXAMPLE-07-MANUAL-REVIEW",
+    "material_id": "M04",
+    "review_status": "needs_confirmation",
+    "risk_reasons": [
+      "健康或医疗类内容需要人工复核。"
+    ],
+    "requested_slot": "2026-11-02T17:00:00+08:00",
+    "suggested_slot": null,
+    "confirmation_status": "pending_confirmation",
+    "pending_items": [
+      "请确认候选时段或审核风险。"
+    ],
+    "draft_status": "saved",
+    "draft_id": "DRAFT-31C5EB1C89F0",
+    "task_status": "awaiting_confirmation",
+    "summary": "候选排期草稿已保存，等待用户确认；未执行真实发布。",
+    "trace_file": "trace.json"
+  },
+  "completion_reason": "model_finished",
+  "model_steps": 5,
+  "tool_calls": 4,
+  "trace_error": null
+}

@@ -1,0 +1,21 @@
+{
+  "result": {
+    "request_id": "EX-06-SAVE-FAILURE",
+    "material_id": "M05",
+    "review_status": "passed",
+    "risk_reasons": [],
+    "requested_slot": "2026-11-02T19:00:00+08:00",
+    "suggested_slot": null,
+    "confirmation_status": "not_required",
+    "pending_items": [],
+    "draft_status": "failed",
+    "draft_id": null,
+    "task_status": "failed",
+    "summary": "草稿保存失败，未执行真实发布。",
+    "trace_file": "trace.json"
+  },
+  "completion_reason": "model_finished",
+  "model_steps": 5,
+  "tool_calls": 4,
+  "trace_error": null
+}

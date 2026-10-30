@@ -1,0 +1,16 @@
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.coverage
+htmlcov/
+.venv/
+venv/
+.env
+runtime/drafts/*.json
+runtime/traces/*.json
+runtime/test-temp/
+runtime/example-generation/
+!runtime/drafts/.gitkeep
+!runtime/traces/.gitkeep
+

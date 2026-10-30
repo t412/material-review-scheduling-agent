@@ -1,0 +1,36 @@
+[
+  {
+    "rule_id": "R001",
+    "name": "必填元数据完整性",
+    "description": "标题、素材类型、来源、版权方和内容摘要必须完整。",
+    "field": "*",
+    "operator": "required_fields",
+    "expected": ["title", "media_type", "source", "copyright_owner", "content_summary"],
+    "action": "request_information",
+    "reason": "素材必填信息缺失，无法完成审核。",
+    "enabled": true
+  },
+  {
+    "rule_id": "R002",
+    "name": "禁用绝对化营销用语",
+    "description": "素材不得包含无法验证的绝对化营销用语。",
+    "field": "content_summary",
+    "operator": "contains_any",
+    "expected": ["全网第一", "绝对领先", "百分百有效"],
+    "action": "block",
+    "reason": "命中禁止使用的绝对化营销用语。",
+    "enabled": true
+  },
+  {
+    "rule_id": "R003",
+    "name": "健康类内容人工确认",
+    "description": "健康类素材发布前需要人工确认。",
+    "field": "category",
+    "operator": "in",
+    "expected": ["health", "medical"],
+    "action": "request_confirmation",
+    "reason": "健康或医疗类内容需要人工复核。",
+    "enabled": true
+  }
+]
+

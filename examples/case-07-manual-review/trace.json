@@ -1,0 +1,177 @@
+{
+  "schema_version": "1.0",
+  "run_id": "EXAMPLE-07-MANUAL-REVIEW-20261030T221733680707-97476468",
+  "started_at": "2026-10-30T22:17:33.629574+08:00",
+  "finished_at": "2026-10-30T22:17:33.680707+08:00",
+  "input": {
+    "request_id": "EXAMPLE-07-MANUAL-REVIEW",
+    "material_id": "M04",
+    "requested_slot": "2026-11-02T17:00:00+08:00",
+    "slot_requirement": "hard",
+    "user_confirmed_alternative": false,
+    "constraints": {
+      "allowed_date": "2026-11-02",
+      "earliest_time": "17:00:00",
+      "latest_time": "21:00:00"
+    }
+  },
+  "limits": {
+    "max_steps": 8,
+    "max_tool_calls": 10,
+    "max_identical_calls": 2
+  },
+  "model_steps": 5,
+  "tool_calls": 4,
+  "steps": [
+    {
+      "step": 1,
+      "call_id": "mock-call-1",
+      "action": "get_material",
+      "arguments": {
+        "material_id": "M04"
+      },
+      "observation": {
+        "status": "success",
+        "summary": "已读取素材M04，信息完整。",
+        "error_code": null,
+        "data": {
+          "material": {
+            "material_id": "M04",
+            "title": "健康内容合作素材",
+            "media_type": "video",
+            "source": "partner",
+            "copyright_owner": "合作方A",
+            "content_summary": "包含一般健康管理建议，不包含诊断结论。",
+            "category": "health",
+            "tags": [
+              "健康",
+              "合作"
+            ],
+            "language": "zh-CN"
+          },
+          "missing_fields": []
+        }
+      },
+      "next_action": "check_material_rules",
+      "decision_basis": "模型选择调用get_material以获取下一步所需事实。"
+    },
+    {
+      "step": 2,
+      "call_id": "mock-call-2",
+      "action": "check_material_rules",
+      "arguments": {
+        "material_id": "M04"
+      },
+      "observation": {
+        "status": "success",
+        "summary": "素材M04审核结果：needs_confirmation；命中1条规则。",
+        "error_code": null,
+        "data": {
+          "material_id": "M04",
+          "review_status": "needs_confirmation",
+          "matched_rules": [
+            {
+              "rule_id": "R003",
+              "rule_name": "健康类内容人工确认",
+              "action": "request_confirmation",
+              "reason": "健康或医疗类内容需要人工复核。",
+              "evidence": {
+                "field": "category",
+                "value": "health"
+              }
+            }
+          ],
+          "risk_reasons": [
+            "健康或医疗类内容需要人工复核。"
+          ]
+        }
+      },
+      "next_action": "query_slot",
+      "decision_basis": "模型选择调用check_material_rules以获取下一步所需事实。"
+    },
+    {
+      "step": 3,
+      "call_id": "mock-call-3",
+      "action": "query_slot",
+      "arguments": {
+        "slot": "2026-11-02T17:00:00+08:00"
+      },
+      "observation": {
+        "status": "success",
+        "summary": "时段2026-11-02T17:00:00+08:00可用。",
+        "error_code": null,
+        "data": {
+          "slot": "2026-11-02T17:00:00+08:00",
+          "availability": "available",
+          "conflicts": []
+        }
+      },
+      "next_action": "save_schedule_draft",
+      "decision_basis": "模型选择调用query_slot以获取下一步所需事实。"
+    },
+    {
+      "step": 4,
+      "call_id": "mock-call-4",
+      "action": "save_schedule_draft",
+      "arguments": {
+        "request": {
+          "request_id": "EXAMPLE-07-MANUAL-REVIEW",
+          "material_id": "M04",
+          "requested_slot": "2026-11-02T17:00:00+08:00",
+          "slot_requirement": "hard",
+          "user_confirmed_alternative": false,
+          "constraints": {
+            "allowed_date": "2026-11-02",
+            "earliest_time": "17:00:00",
+            "latest_time": "21:00:00"
+          }
+        },
+        "review_status": "needs_confirmation",
+        "suggested_slot": null,
+        "confirmation_status": "pending_confirmation"
+      },
+      "observation": {
+        "status": "success",
+        "summary": "草稿DRAFT-31C5EB1C89F0已保存，未执行真实发布。",
+        "error_code": null,
+        "data": {
+          "draft_status": "saved",
+          "draft": {
+            "draft_id": "DRAFT-31C5EB1C89F0",
+            "idempotency_key": "31c5eb1c89f010c7cf05b51e3b365d555a1c0b3ba4dd70e61f10eca3af407bc5",
+            "request_id": "EXAMPLE-07-MANUAL-REVIEW",
+            "material_id": "M04",
+            "requested_slot": "2026-11-02T17:00:00+08:00",
+            "suggested_slot": null,
+            "confirmation_status": "pending_confirmation",
+            "created_at": "2026-10-30T22:17:33.653631+08:00"
+          },
+          "published": false
+        }
+      },
+      "next_action": "结束：awaiting_confirmation",
+      "decision_basis": "模型选择调用save_schedule_draft以获取下一步所需事实。"
+    }
+  ],
+  "completion_reason": "model_finished",
+  "final_output": {
+    "request_id": "EXAMPLE-07-MANUAL-REVIEW",
+    "material_id": "M04",
+    "review_status": "needs_confirmation",
+    "risk_reasons": [
+      "健康或医疗类内容需要人工复核。"
+    ],
+    "requested_slot": "2026-11-02T17:00:00+08:00",
+    "suggested_slot": null,
+    "confirmation_status": "pending_confirmation",
+    "pending_items": [
+      "请确认候选时段或审核风险。"
+    ],
+    "draft_status": "saved",
+    "draft_id": "DRAFT-31C5EB1C89F0",
+    "task_status": "awaiting_confirmation",
+    "summary": "候选排期草稿已保存，等待用户确认；未执行真实发布。",
+    "trace_file": "trace.json"
+  },
+  "notes": "仅记录可审计动作依据，不包含模型内部思维过程。"
+}

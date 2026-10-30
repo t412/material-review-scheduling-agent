@@ -1,0 +1,23 @@
+{
+  "result": {
+    "request_id": "EX-04-CONFLICT",
+    "material_id": "M01",
+    "review_status": "passed",
+    "risk_reasons": [],
+    "requested_slot": "2026-11-02T18:00:00+08:00",
+    "suggested_slot": "2026-11-02T19:00:00+08:00",
+    "confirmation_status": "pending_confirmation",
+    "pending_items": [
+      "请确认候选时段或审核风险。"
+    ],
+    "draft_status": "saved",
+    "draft_id": "DRAFT-7750C97C09B8",
+    "task_status": "awaiting_confirmation",
+    "summary": "候选排期草稿已保存，等待用户确认；未执行真实发布。",
+    "trace_file": "trace.json"
+  },
+  "completion_reason": "model_finished",
+  "model_steps": 6,
+  "tool_calls": 5,
+  "trace_error": null
+}

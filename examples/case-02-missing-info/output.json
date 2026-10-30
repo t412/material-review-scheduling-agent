@@ -1,0 +1,25 @@
+{
+  "result": {
+    "request_id": "EX-02-MISSING",
+    "material_id": "M02",
+    "review_status": "needs_information",
+    "risk_reasons": [
+      "缺少字段：copyright_owner"
+    ],
+    "requested_slot": "2026-11-02T17:00:00+08:00",
+    "suggested_slot": null,
+    "confirmation_status": "not_required",
+    "pending_items": [
+      "补充字段：copyright_owner"
+    ],
+    "draft_status": "not_attempted",
+    "draft_id": null,
+    "task_status": "incomplete",
+    "summary": "素材信息不完整，需要补充后继续。",
+    "trace_file": "trace.json"
+  },
+  "completion_reason": "model_finished",
+  "model_steps": 2,
+  "tool_calls": 1,
+  "trace_error": null
+}

@@ -1,0 +1,23 @@
+{
+  "result": {
+    "request_id": "EX-03-RISK",
+    "material_id": "M03",
+    "review_status": "blocked",
+    "risk_reasons": [
+      "命中禁止使用的绝对化营销用语。"
+    ],
+    "requested_slot": "2026-11-02T17:00:00+08:00",
+    "suggested_slot": null,
+    "confirmation_status": "not_required",
+    "pending_items": [],
+    "draft_status": "not_attempted",
+    "draft_id": null,
+    "task_status": "blocked",
+    "summary": "素材命中阻断规则，未保存草稿。",
+    "trace_file": "trace.json"
+  },
+  "completion_reason": "model_finished",
+  "model_steps": 3,
+  "tool_calls": 2,
+  "trace_error": null
+}
